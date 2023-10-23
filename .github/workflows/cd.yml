@@ -3,10 +3,12 @@ name: Continous Deployment
 on:
   workflow_dispatch:
     inputs:
-      operation:
-        description: 'Operation to perform (deploy or update)'
-        required: true
-        default: 'update'
+      choice:
+        description: Choose Fastly Environment
+        options:
+          - update
+          - deploy
+        type: choice
 
 jobs:
   deploy:
