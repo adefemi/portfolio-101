@@ -70,11 +70,11 @@ INSTALLED_APPS = [
 	'django.contrib.contenttypes',
 	'django.contrib.sessions',
 	'django.contrib.messages',
+    'cloudinary_storage',
 	'django.contrib.staticfiles',
 	'corsheaders',
 	'rest_framework',
 	'main',
-	'cloudinary_storage',
 	'cloudinary',
 ]
 
@@ -120,5 +120,5 @@ AUTH_PASSWORD_VALIDATORS = [
 	{'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
