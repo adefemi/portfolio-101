@@ -46,7 +46,6 @@ jobs:
         source venv/bin/activate
         make get_env
         make load_env
-        python manage.py collectstatic --noinput
 
     - name: "${{github.event.inputs.choice}}"
       run: |
