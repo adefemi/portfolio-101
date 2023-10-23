@@ -1,0 +1,30 @@
+name: Continous Deployment
+
+on: push
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        make install
+
+    - name: Setup up Requirements
+      run: |
+        make get_env
+        make load_env
+
+    - name: Deploy
+      run: |
+        make deploy
