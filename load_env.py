@@ -15,6 +15,8 @@ def update_zappa_settings():
     with open('zappa_settings.json', 'r') as file:
         zappa_settings = json.load(file)
 
+    print(zappa_settings)
+
     # Update environment variables in Zappa settings
     zappa_settings['production']['environment_variables'] = env_vars
 
