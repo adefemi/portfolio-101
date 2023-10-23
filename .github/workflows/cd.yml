@@ -22,6 +22,7 @@ jobs:
 
     - name: Install dependencies
       run: |
+        source venv/bin/activate
         python -m pip install --upgrade pip
         make install
 
@@ -34,12 +35,9 @@ jobs:
 
     - name: Setup up Requirements
       run: |
+        source venv/bin/activate
         make get_env
         make load_env
-
-    - name: Debugging output
-      run: |
-        cat zappa_settings.json
 
     - name: Deploy
       run: |
