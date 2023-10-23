@@ -47,7 +47,7 @@ jobs:
         make get_env
         make load_env
 
-    - name: "${{ github.event.inputs.operation }}"
+    - name: "${{github.event.inputs.choice}}"
       run: |
         source venv/bin/activate
-        make "${{ github.event.inputs.operation }}"
+        make "${{github.event.inputs.choice}}"
