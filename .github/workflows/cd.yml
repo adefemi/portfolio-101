@@ -39,4 +39,5 @@ jobs:
 
     - name: Deploy
       run: |
+        source venv/bin/activate
         make deploy
