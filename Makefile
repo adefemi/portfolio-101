@@ -8,4 +8,7 @@ load_env:
 	python load_env.py
 
 deploy:
+	zappa deploy production
+
+update:
 	zappa update production

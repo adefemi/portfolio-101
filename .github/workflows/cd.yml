@@ -1,6 +1,12 @@
 name: Continous Deployment
 
-on: push
+on:
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: 'Operation to perform (deploy or update)'
+        required: true
+        default: 'update'
 
 jobs:
   deploy:
@@ -42,4 +48,11 @@ jobs:
     - name: Deploy
       run: |
         source venv/bin/activate
-        make deploy
+        if [[ "${{ github.event.inputs.operation }}" == "deploy" ]]; then
+          make deploy
+        elif [[ "${{ github.event.inputs.operation }}" == "update" ]]; then
+          make update
+        else
+          echo "Unknown operation: ${{ github.event.inputs.operation }}"
+          exit 1
+        fi
