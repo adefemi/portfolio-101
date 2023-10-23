@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       choice:
-        description: Choose Fastly Environment
+        description: Choose Operation
         options:
           - update
           - deploy
@@ -47,14 +47,7 @@ jobs:
         make get_env
         make load_env
 
-    - name: Deploy
+    - name: "${{ github.event.inputs.operation }}"
       run: |
         source venv/bin/activate
-        if [[ "${{ github.event.inputs.operation }}" == "deploy" ]]; then
-          make deploy
-        elif [[ "${{ github.event.inputs.operation }}" == "update" ]]; then
-          make update
-        else
-          echo "Unknown operation: ${{ github.event.inputs.operation }}"
-          exit 1
-        fi
+        make "${{ github.event.inputs.operation }}"
