@@ -3,7 +3,7 @@ from decouple import config
 
 
 
-DEBUG = True
+DEBUG = False
 
 USE_TZ = True
 
@@ -121,4 +121,4 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
