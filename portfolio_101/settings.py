@@ -74,17 +74,10 @@ INSTALLED_APPS = [
 	'corsheaders',
 	'rest_framework',
 	'main',
-    'cloudinary_storage',
-	'cloudinary',
+    'storages'
 ]
 
 WSGI_APPLICATION = 'portfolio_101.wsgi.application'
-
-CLOUDINARY_STORAGE = {
-	'API_KEY': config('API_KEY'),
-	'API_SECRET': config('API_SECRET'),
-	'CLOUD_NAME': config('CLOUD_NAME'),
-}
 
 CORS_ALLOW_HEADERS = [
 	'x-requested-with',
@@ -107,7 +100,7 @@ CORS_ALLOW_METHODS = [
 	'OPTIONS',
 ]
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -124,6 +117,7 @@ AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'portfolio-101-bk'
 AWS_S3_REGION_NAME = 'us-east-1'
+AWS_DEFAULT_ACL = 'public-read'
 
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
