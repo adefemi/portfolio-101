@@ -13,6 +13,9 @@ class WorkHistoryModel(models.Model):
 	class Meta:
 		ordering = ('order', )
 
+	def __str__(self):
+		return f"{self.order} - {self.job_title} at {self.company_name}"
+
 
 class ProjectModel(models.Model):
 	name = models.CharField(max_length=100)
@@ -24,6 +27,9 @@ class ProjectModel(models.Model):
 
 	class Meta:
 		ordering = ('order', )
+	
+	def __str__(self):
+		return f"{self.order} - {self.name}"
 
 
 class BlogModel(models.Model):
@@ -34,3 +40,6 @@ class BlogModel(models.Model):
 
 	class Meta:
 		ordering = ('order', )
+		
+	def __str__(self):
+		return f"{self.order} - {self.title}"
