@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import (WorkHistoryModel, ProjectModel, BlogModel)
+from .models import (WorkHistoryModel, ProjectModel, BlogModel, ContactModel)
 
 
 class WorkHistorySerializer(serializers.ModelSerializer):
@@ -17,4 +17,10 @@ class ProjectSerializer(serializers.ModelSerializer):
 class BlogSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = BlogModel
+		fields = '__all__'
+
+
+class ContactSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = ContactModel
 		fields = '__all__'
