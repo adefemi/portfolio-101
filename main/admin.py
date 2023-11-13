@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import (WorkHistoryModel, ProjectModel, BlogModel)
+from .models import (WorkHistoryModel, ProjectModel, BlogModel, ContactModel)
 
 
 admin.site.register(
-	(WorkHistoryModel, ProjectModel, BlogModel)
+    (WorkHistoryModel, ProjectModel, BlogModel, ContactModel)
 )
